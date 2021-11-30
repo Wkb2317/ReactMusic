@@ -33,3 +33,12 @@ export function getTopRanking(idx){
   })
 }
 
+export function getSettledSinger( cat,limit){
+  return request({
+    url:"/artist/list",
+    params:{
+      limit, cat
+    }
+  })
+}
+

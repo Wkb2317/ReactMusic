@@ -5,7 +5,8 @@ import {
   CHANGE_NEW_ALBUMS,
   CHANGE_UP_RANKING,
   CHANGE_ORIGIN_RANKING,
-  CHANGE_NEW_RANKING
+  CHANGE_NEW_RANKING,
+  CHANGE_SETTLED_SINGER
 } from './constans'
 
 const defaultState = Map({
@@ -15,6 +16,7 @@ const defaultState = Map({
   upRanking:{},
   newRanking:{},
   originRanking:{},
+  artists:[]
 })
 export default function reducer(state=defaultState,action){
   switch(action.type){
@@ -30,6 +32,8 @@ export default function reducer(state=defaultState,action){
       return state.set("newRanking",action.newRanking);
     case CHANGE_ORIGIN_RANKING:
       return state.set("originRanking",action.originRanking)
+    case CHANGE_SETTLED_SINGER: 
+      return state.set("artists",action.artists)
     default:
       return state
   }

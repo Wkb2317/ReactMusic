@@ -1,4 +1,4 @@
-import { getTopBanner,getHotRecommend ,getNewAlbums , getTopRanking} from '@/services/recommend'
+import { getTopBanner,getHotRecommend ,getNewAlbums , getTopRanking , getSettledSinger} from '@/services/recommend'
 import { HOT_RECOMMEND_LIMIT } from '@/common/constans';
 import {
   CHANGE_BANNERS,
@@ -6,7 +6,8 @@ import {
   CHANGE_NEW_ALBUMS,
   CHANGE_UP_RANKING,
   CHANGE_ORIGIN_RANKING,
-  CHANGE_NEW_RANKING
+  CHANGE_NEW_RANKING,
+  CHANGE_SETTLED_SINGER
 } from './constans'
 
 const changeTopBannersAction = (banners) =>{
@@ -51,6 +52,12 @@ const changeOriginRanking = (res) =>{
   }
 }
 
+const changeSettledSinger = (res) =>{
+  return {
+    type :CHANGE_SETTLED_SINGER,
+    artists: res
+  }
+}
 
 
 /**
@@ -101,5 +108,14 @@ export function getTopRankingAction(idx){
         break;
       default:
     }
+  }
+}
+
+// 入驻歌手
+export function getSettledSingerAction(cat,limit){
+  return dispatch => {
+    getSettledSinger(cat,limit).then(res => {
+      dispatch(changeSettledSinger(res.artists))
+    })
   }
 }

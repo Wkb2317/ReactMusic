@@ -5,6 +5,8 @@ import WYhotRecommend from './c-cpns/hot-recommend/';
 import WYnewAlbum from './c-cpns/new-album/';
 import WYranking from './c-cpns/ranking/';
 import WYLogin from './c-cpns/login/index';
+import WYSettledSinger from './c-cpns/settled-singer';
+import WYHotRadio from './c-cpns/hot-radio';
 
 import { RecommendWrapper, Content, RecommendLeft, RecommendRight } from './style';
 function WYrecommend() {
@@ -20,6 +22,8 @@ function WYrecommend() {
 					</RecommendLeft>
 					<RecommendRight>
 						<WYLogin></WYLogin>
+						<WYSettledSinger></WYSettledSinger>
+						<WYHotRadio />
 					</RecommendRight>
 				</Content>
 			</RecommendWrapper>
